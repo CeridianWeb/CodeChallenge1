@@ -1,6 +1,4 @@
 # CodeChallenge1
-
-
 ## Week 1
 **Requirements**
    1. Simulate a pack of cards
