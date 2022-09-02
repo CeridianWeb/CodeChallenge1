@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Challenge1
 {
 
     // Simulate a pack of cards
