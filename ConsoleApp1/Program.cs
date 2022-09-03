@@ -14,6 +14,9 @@ namespace Challenge1
     // PackOfCards should create the cards it needs for a full 52 card deck
     // and be able to Deal() a single card at a time.
 
+    /// <summary>
+    /// Runs the main program loop and provides the entry point
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
