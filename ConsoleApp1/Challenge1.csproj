@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="EnumOfRanks.cs" />
+    <Compile Include="EnumOfSuits.cs" />
     <Compile Include="PackOfCards.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

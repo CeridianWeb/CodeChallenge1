@@ -10,6 +10,19 @@ namespace Challenge1
     /// </summary>
     public class PackOfCards
     {
+        private IList<Card> deck = new List<Card>();
+        public PackOfCards()
+        {
+            for(int i =1; i<= sizeof(Suits); i++)
+            {
+                for (int j = 1; j <= 13; j++)
+                {
+                    Card card = new Card(((Suits) i).ToString(),
+                        Enum.TryParse(j.ToString(), out Ranks rank) ? rank.ToString() : j.ToString());
+                    deck.Add(card);
+                }
+            }
+        }
         /// <summary>
         /// Takes the card at the top of the pack and returns it to the caller and removes it from the pack of cards.
         /// </summary>
@@ -17,7 +30,9 @@ namespace Challenge1
         /// <returns>An instance of the <see cref="Card"/> class.</returns>
         public Card Deal()
         {
-            throw new NotImplementedException();
+            Card card = deck[deck.Count - 1];
+            deck.RemoveAt(deck.Count-1);
+            return card;
         }
 
         /// <summary>
@@ -25,7 +40,7 @@ namespace Challenge1
         /// </summary>
         public int CardsRemaining
         {
-            get { throw new NotImplementedException(); }
+            get => deck.Count;
         }
     }
 }
