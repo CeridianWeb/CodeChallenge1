@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="HandOfCards.cs" />
+    <Compile Include="ICardCollection.cs" />
+    <Compile Include="IPileOfCards.cs" />
     <Compile Include="PackOfCards.cs" />
+    <Compile Include="PileOfCards.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
