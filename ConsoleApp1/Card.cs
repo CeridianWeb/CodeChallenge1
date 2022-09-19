@@ -9,7 +9,18 @@ namespace Challenge1
     /// </summary>
     public class Card
     {
+        public string suit;
+        public string rank;
 
+        public Card(string suit, string rank)
+        {
+            this.suit = suit;
+            this.rank = rank;
+        }
 
+        public override string ToString()
+        {
+            return suit + rank;
+        }
     }
 }

@@ -50,6 +50,8 @@
     <Compile Include="HandOfCards.cs" />
     <Compile Include="ICardCollection.cs" />
     <Compile Include="IPileOfCards.cs" />
+    <Compile Include="EnumOfRanks.cs" />
+    <Compile Include="EnumOfSuits.cs" />
     <Compile Include="PackOfCards.cs" />
     <Compile Include="PileOfCards.cs" />
     <Compile Include="Program.cs" />
