@@ -6,7 +6,7 @@ namespace Challenge1
 
     // Simulate a pack of cards
     // 52 cards in a pack
-    // Suits Harts Club Diamond Spade - This order is important
+    // Suits Hearts Club Diamond Spade - This order is important
     // Ace 2 - 10 Jack Queen King
     // Ace is low = 1
     // 
