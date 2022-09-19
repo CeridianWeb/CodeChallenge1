@@ -11,10 +11,9 @@ namespace Challenge1
     public class PackOfCards
     {
 
-        private Card[] packofcards;
+        private  Card[] packofcards;
         private int currentCard;
         private const int NUMBER_OF_CARDS = 52;
-        private Random ranNum;
 
         public PackOfCards()
         {
@@ -23,7 +22,6 @@ namespace Challenge1
             string[] rank = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
             packofcards = new Card[NUMBER_OF_CARDS];
             currentCard = 0;
-            ranNum = new Random();
             for (int count = 0; count < packofcards.Length; count++)
                 packofcards[count] = new Card(faces[count % 11], suits[count / 13]);
         }
