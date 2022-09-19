@@ -11,17 +11,18 @@ namespace Challenge1
     {
         private string face;
         private string suit;
+        private string rank;
 
-        public Card(string cardFace, string cardSuit)
+        public Card(string cardFace, string cardSuit, string cardRank)
         {
             face = cardFace;
             suit = cardSuit;
-
+            rank = cardRank;
         }
 
         public override string ToString()
         {
-            return face + " of " + suit;
+            return face + " of " + suit + " of rank " + rank;
         }
     }
 }
