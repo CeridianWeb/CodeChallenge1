@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Challenge1
 {
-
-
     /// <summary>
-    /// Simulates a deck of 52 playing cards            
+    /// Simulates a deck of 52 playing cards
     /// </summary>
-    public class PackOfCards
+    public class PackOfCards : IPackOfCards
     {
-        private Queue<Card> cards;
+        private readonly Queue<Card> cards;
 
         public PackOfCards()
         {
@@ -31,8 +27,8 @@ namespace Challenge1
         /// Takes the card at the top of the pack and returns it to the caller and removes it from the pack of cards.
         /// </summary>
         /// <example>This shows the intended usage. <code>var cardFromTop = pack.Deal()</code></example>
-        /// <returns>An instance of the <see cref="Card"/> class.</returns>
-        public Card Deal()
+        /// <returns>An instance of the <see cref="ICard"/> interface.</returns>
+        public ICard Deal()
         {
             if (cards.Count > 0)
             {
