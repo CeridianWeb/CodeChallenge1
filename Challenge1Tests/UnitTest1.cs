@@ -5,7 +5,7 @@ using Xunit;
 namespace Challenge1Tests
 {
 
-    public class PacOfCardsTests
+    public class PackOfCardsTests
     {
 
         [Fact]

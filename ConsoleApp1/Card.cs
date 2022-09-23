@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Challenge1.Helpers.Enums;
+using System;
 
 namespace Challenge1
 {
@@ -9,7 +10,18 @@ namespace Challenge1
     /// </summary>
     public class Card
     {
+        public string CardNumber { get; set; }
+        public Suits Suit { get; set; }
 
+        public Card(string CardNumber, Suits Suit)
+        {
+            this.CardNumber = CardNumber;
+            this.Suit = Suit;
+        }
 
+        public override string ToString()
+        {
+            return CardNumber + Suit.ToString().Substring(0, 1);
+        }
     }
 }
