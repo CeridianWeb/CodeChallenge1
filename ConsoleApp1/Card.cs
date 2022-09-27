@@ -1,4 +1,5 @@
 ﻿using Challenge1.Helpers.Enums;
+using Challenge1.Interfaces;
 using System;
 
 namespace Challenge1
@@ -8,7 +9,7 @@ namespace Challenge1
     /// Should have a Suit - Hearts, Clubs, Dimonds or Spades
     /// Should have a Rank - A 2-10 J Q K. 
     /// </summary>
-    public class Card
+    public class Card : ICard
     {
         public string CardNumber { get; set; }
         public Suits Suit { get; set; }
