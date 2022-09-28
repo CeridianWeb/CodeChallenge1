@@ -22,10 +22,35 @@ namespace Challenge1
             string[] rank = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
             packofcards = new Card[NUMBER_OF_CARDS];
             currentCard = 0;
+            ranNum = new Random();
+
             for (int count = 0; count < packofcards.Length; count++)
                 packofcards[count] = new Card(faces[count % 11], suits[count / 13]);
         }
 
+        // Trying to shuffle every single card in deck
+
+            public void Shuffle()
+        {
+            currentCard = 0;
+            // shuffle every single card
+            for (int first = 0; first < packofcards.length; first++)
+            {
+                // another integer to store next ranNum which is 52 cards
+                //pull out one of the 52 cards 
+                int second = ranNum.Next(NUMBER_OF_CARDS);
+                //Temp variable to store first from first variable
+                Card temp = packofcards[first];
+                //store second from first variable
+                packofcards[first] = packofcards[second];
+                // now store the temp back to the second variable
+                packofcards[second] = temp;
+
+
+
+            }
+        }
+        
         /// <summary>
         /// Takes the card at the top of the pack and returns it to the caller and removes it from the pack of cards.
         /// </summary>
