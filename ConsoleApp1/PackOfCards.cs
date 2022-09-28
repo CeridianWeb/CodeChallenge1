@@ -37,7 +37,7 @@ namespace Challenge1
         {
             // throw new NotImplementedException();
 
-            if (currentCard < packofcards.Length)
+            if (currentCard - 1 < packofcards.Length)
                 return packofcards[currentCard++];
             else
                 return null;
@@ -47,12 +47,7 @@ namespace Challenge1
         /// <summary>
         /// Returns the number of cards in the pack currently. <see cref="Deal"/> will decrement this number.  />
         /// </summary>
-        public int CardsRemaining
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int CardsRemaining => NUMBER_OF_CARDS - currentCard;
+
     }
 }
