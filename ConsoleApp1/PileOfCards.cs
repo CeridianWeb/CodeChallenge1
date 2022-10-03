@@ -5,34 +5,48 @@ namespace Challenge1
 {
     public class PileOfCards : ICardCollection, IPileOfCards
     {
+        private List<Card> pileOfCards = new List<Card>();
         public void Add(Card card)
         {
-            throw new NotImplementedException();
+            pileOfCards.Add(card);
         }
 
         public void AddMany(IEnumerable<Card> card)
         {
-            throw new NotImplementedException();
+            pileOfCards.AddRange(card);
         }
 
         public Card CardAtPosition(int fromTop)
         {
-            throw new NotImplementedException();
+            if (pileOfCards.Count > fromTop)
+            {
+                return pileOfCards[pileOfCards.Count - fromTop - 1];
+            }
+
+            return null;
         }
 
         public IEnumerable<Card> List()
         {
-            throw new NotImplementedException();
+            return pileOfCards;
         }
 
         public Card Remove(int index)
         {
-            throw new NotImplementedException();
+            Card cardAtIndex = pileOfCards[index];
+            pileOfCards.RemoveAt(index);
+            return cardAtIndex;
         }
 
         public Card TopCard()
         {
-            throw new NotImplementedException();
+            int count = pileOfCards.Count;
+            if (count > 0)
+            {
+                return pileOfCards[count - 1];
+            }
+
+            return null;
         }
     }
 }
