@@ -14,18 +14,19 @@ namespace Challenge1
         private  Card[] packofcards;
         private int currentCard;
         private const int NUMBER_OF_CARDS = 52;
+        private Random ranNum;
 
         public PackOfCards()
         {
-            string[] faces = { "Aces", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
-            string[] suits = { "Hearts", "Clubs", "Diamonds", "Spades" };
+            //string[] faces = { "Aces", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
+            string[] suits = { "H", "C", "D", "S" };
             string[] rank = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
             packofcards = new Card[NUMBER_OF_CARDS];
             currentCard = 0;
             ranNum = new Random();
 
             for (int count = 0; count < packofcards.Length; count++)
-                packofcards[count] = new Card(faces[count % 11], suits[count / 13]);
+                packofcards[count] = new Card(suits[count / 13], rank[count % 11]);
         }
 
         // Trying to shuffle every single card in deck
@@ -34,7 +35,7 @@ namespace Challenge1
         {
             currentCard = 0;
             // shuffle every single card
-            for (int first = 0; first < packofcards.length; first++)
+            for (int first = 0; first < packofcards.Length; first++)
             {
                 // another integer to store next ranNum which is 52 cards
                 //pull out one of the 52 cards 
@@ -45,8 +46,6 @@ namespace Challenge1
                 packofcards[first] = packofcards[second];
                 // now store the temp back to the second variable
                 packofcards[second] = temp;
-
-
 
             }
         }

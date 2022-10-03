@@ -9,20 +9,20 @@ namespace Challenge1
     /// </summary>
     public class Card
     {
-        private string face;
+       // private string face;
         private string suit;
         private string rank;
 
-        public Card(string cardFace, string cardSuit, string cardRank)
+        public Card( string cardSuit, string cardRank)
         {
-            face = cardFace;
+           // face = cardFace;
             suit = cardSuit;
             rank = cardRank;
         }
 
         public override string ToString()
         {
-            return face + " of " + suit + " of rank " + rank;
+            return rank + suit;
         }
     }
 }
