@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Challenge1
 {
@@ -8,7 +9,8 @@ namespace Challenge1
     /// </summary>
     public class PackOfCards : IPackOfCards
     {
-        private readonly Queue<Card> cards;
+        private Queue<Card> cards;
+        private Random random;
 
         public PackOfCards()
         {
@@ -21,6 +23,8 @@ namespace Challenge1
                     cards.Enqueue(card);
                 }
             }
+
+            random = new Random();
         }
 
         /// <summary>
@@ -43,6 +47,22 @@ namespace Challenge1
         public int CardsRemaining
         {
             get { return cards.Count; }
+        }
+
+        public void Shuffle()
+        {
+            int n = cards.Count;
+            var cardList = cards.ToList();
+
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                Card buffered = cardList[k];
+                cardList[k] = cardList[n];
+                cardList[n] = buffered;
+            }
+            cards = new Queue<Card>(cardList);
         }
     }
 }
