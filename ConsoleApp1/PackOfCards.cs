@@ -8,70 +8,52 @@ namespace Challenge1
     /// <summary>
     /// Simulates a deck of 52 playing cards            
     /// </summary>
-    public class PackOfCards
+     class PackOfCards : Card
     {
 
-        private  Card[] packofcards;
-        private int currentCard;
-        private const int NUMBER_OF_CARDS = 52;
-        private Random ranNum;
+        const int NUM_OF_CARDS = 52; // total number of cards
+        private Card[] deck; // array of all playing cards
 
         public PackOfCards()
         {
-            //string[] faces = { "Aces", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
-            string[] suits = { "H", "C", "D", "S" };
-            string[] rank = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-            packofcards = new Card[NUMBER_OF_CARDS];
-            currentCard = 0;
-            ranNum = new Random();
-
-            for (int count = 0; count < packofcards.Length; count++)
-                packofcards[count] = new Card(suits[count / 13], rank[count % 11]);
+            deck = new Card[NUM_OF_CARDS];
         }
+        public Card[] getDeck { get { return deck; } } // getting the current deck
 
-        // Trying to shuffle every single card in deck
-
-            public void Shuffle()
+        //create deck of 52 cards which will be 13values each with 4 suits 13x4=52
+        public void setupDeck()
         {
-            currentCard = 0;
-            // shuffle every single card
-            for (int first = 0; first < packofcards.Length; first++)
+            int i = 0;
+            foreach(SUIT s in Enum.GetValues(typeof(SUIT)))
             {
-                // another integer to store next ranNum which is 52 cards
-                //pull out one of the 52 cards 
-                int second = ranNum.Next(NUMBER_OF_CARDS);
-                //Temp variable to store first from first variable
-                Card temp = packofcards[first];
-                //store second from first variable
-                packofcards[first] = packofcards[second];
-                // now store the temp back to the second variable
-                packofcards[second] = temp;
+                foreach(VALUE v in Enum.GetValues(typeof(VALUE)))
+                {
+                    deck[i] = new Card { MySuit = s, MyValue = v };
+                    i++;
+                }
+            }
+            ShuffleCards();
+        }
+        //ShuffleDeck
+        public void ShuffleCards()
+        {
+            Random rand = new Random();
+            Card temp;
 
+            //run the shuffle 1000times
+            //randomizing as much as possible
+            for (int shuffleTimes = 0; shuffleTimes < 1000; shuffleTimes++)
+            {
+                for(int i = 0; i < NUM_OF_CARDS; i++)
+                {
+                    //swap the cards randomly
+                    int secondCardIndex = rand.Next(13);
+                    temp = deck[i];
+                    deck[i] = deck[secondCardIndex];
+                    deck[secondCardIndex] = temp;
+                }
             }
         }
-        
-        /// <summary>
-        /// Takes the card at the top of the pack and returns it to the caller and removes it from the pack of cards.
-        /// </summary>
-        /// <example>This shows the intended usage. <code>var cardFromTop = pack.Deal()</code></example>
-        /// <returns>An instance of the <see cref="Card"/> class.</returns>
-        /// 
-
-        public Card Deal()
-        {
-            // throw new NotImplementedException();
-
-            if (currentCard - 1 < packofcards.Length)
-                return packofcards[currentCard++];
-            else
-                return null;
-        }
-
-
-        /// <summary>
-        /// Returns the number of cards in the pack currently. <see cref="Deal"/> will decrement this number.  />
-        /// </summary>
-        public int CardsRemaining => NUMBER_OF_CARDS - currentCard;
 
     }
 }

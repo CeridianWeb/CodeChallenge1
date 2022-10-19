@@ -18,20 +18,8 @@ namespace Challenge1
     {
         static void Main(string[] args)
         {
-            // Do not change this, code must run as it is here.
-            var pack = new PackOfCards();
-            pack.Shuffle();
-
-            Console.WriteLine("Number of cards = {0}", pack.CardsRemaining);
-            while (pack.CardsRemaining > 0)
-            {
-                Card card = pack.Deal();
-                Console.WriteLine(card);
-            }
-            Console.ReadLine();
-
-            Console.ReadLine();
-        }
+            DrawCards.DrawCardOutline(0, 0);
+            Console.ReadKey();
     }
 }
 

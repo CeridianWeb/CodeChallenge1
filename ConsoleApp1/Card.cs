@@ -9,20 +9,21 @@ namespace Challenge1
     /// </summary>
     public class Card
     {
-       // private string face;
-        private string suit;
-        private string rank;
-
-        public Card( string cardSuit, string cardRank)
+        public enum SUIT
         {
-           // face = cardFace;
-            suit = cardSuit;
-            rank = cardRank;
+            HEARTS,
+            SPADES,
+            DIAMONDS,
+            CLUBS
+        }
+        public enum VALUE
+        {
+            TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
+
         }
 
-        public override string ToString()
-        {
-            return rank + suit;
-        }
+        //properties
+        public SUIT MySuit { get; set; }
+        public VALUE MyValue { get; set; }
     }
 }
