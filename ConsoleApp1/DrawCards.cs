@@ -20,10 +20,10 @@ namespace Challenge1
             //draw top left corner of each card
             Console.SetCursorPosition(x, y);
             //offesetting width with 12 spaces
-            Console.Write("________\n"); //top edge of the card
+            Console.Write(" ________\n"); //top edge of the card
             for (int i = 0; i < 10; i++)
             {
-                Console.SetCursorPosition(x, y + 1); // as i increases, the space will move to the right
+                Console.SetCursorPosition(x, y + 1 + i); // as i increases, the space will move to the right
                 //draw 5 card in a row and one in each line
                 if (i != 9)
                     Console.WriteLine("|__________|"); // left and right edges of the card
@@ -60,6 +60,11 @@ namespace Challenge1
                     Console.ForegroundColor = ConsoleColor.Black;
                     break;
             }
+            //display the encoded character and card value
+            Console.SetCursorPosition(x +5, y +5);
+            Console.Write(cardSuit);
+            Console.SetCursorPosition(x + 4, y + 7);
+            Console.Write(card.MyValue);
         }
     }
 }
