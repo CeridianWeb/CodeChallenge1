@@ -165,7 +165,7 @@ namespace Challenge1
         /// <param name="isEnd">Displays the dealer's hole card if true</param>
         public void ShowHands(bool isEnd)
         {
-            var holeCard = isEnd ? dealersHand.List().FirstOrDefault().ToString() : "Unknown"; //the first card of the dealer should only be known after play
+            var holeCard = isEnd ? dealersHand.List().FirstOrDefault().ToString() : "??"; //the first card of the dealer should only be known after play
 
             //show dealers hand
             var dealerHand = "     Dealers Hand = ";
