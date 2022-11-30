@@ -7,7 +7,7 @@ namespace Challenge1
     /// <summary>
     /// Simulates a deck of 52 playing cards
     /// </summary>
-    public class PackOfCards : IPackOfCards
+    public class PackOfCards
     {
         private Queue<Card> cards;
         private Random random;
@@ -32,7 +32,7 @@ namespace Challenge1
         /// </summary>
         /// <example>This shows the intended usage. <code>var cardFromTop = pack.Deal()</code></example>
         /// <returns>An instance of the <see cref="ICard"/> interface.</returns>
-        public ICard Deal()
+        public Card Deal()
         {
             if (cards.Count > 0)
             {

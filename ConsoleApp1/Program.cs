@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace Challenge1
 {
@@ -20,76 +23,86 @@ namespace Challenge1
         private static void Main(string[] args)
 #pragma warning restore IDE0060 // Remove unused parameter
         {
-            // Do not change this, code must run as it is here.
+
+            // Init
+            var playerTurn = 0;
+            var dealTurn = 0;
+            var rnd = new Random();
+            var discardPile = new PileOfCards();
             var pack = new PackOfCards();
-            Console.WriteLine("Number of cards = {0}", pack.CardsRemaining);
+            pack.Shuffle(); // Dont forget to Shuffle
+            // Create Players 
+            var players = new List<Player>() {
+                new Player("Dave"),
+                new Player("Paul"),
+                new Player("Fred"),
+                new Player("John"),
+                new Player("Mike"),
+                new Player("Rob"),
+                new Player("Ann") };
+
+            // Deal
             while (pack.CardsRemaining > 0)
             {
-                ICard card = pack.Deal();
+                var index = dealTurn % players.Count();
+                var currentDealPlayer = players[index];
+                currentDealPlayer.ReceiveCard(pack.Deal());
+                dealTurn++;
+            }
+
+            // Game Loop
+            while (players.Count > 1)
+            {
+                var index = playerTurn % players.Count();
+                var currentPlayer = players[index];
+                if (!currentPlayer.Hand.List().Any())
+                {
+                    Console.WriteLine($"{currentPlayer.Name} cant play");
+                    Thread.Sleep(500);
+                    playerTurn++;
+                    continue;
+                }
+
+                discardPile.Add(currentPlayer.PlayCard());
+
+                // All players Check for snap
+                Console.WriteLine($"{currentPlayer.Name} : {discardPile.TopCard()}");
+
+                // Check for Snap
+                if (discardPile.List().Count() > 1 && discardPile.TopCard().Rank == discardPile.CardAtPosition(2).Rank)
+                {
+                    //Snap trigered
+                    Console.WriteLine("------Snap-----");
+                    Console.WriteLine("Two " + discardPile.TopCard().Rank + "s ");
+
+                    // Determine Snap Winner
+                    var randomplayer = rnd.Next(0, players.Count() - 1);
+                    var snapwinner = players[randomplayer];
+                    Console.WriteLine(snapwinner.Name + " wins Snap");
+                    snapwinner.CollectCards(discardPile);
+
+                    //remove out players
+                    var outPlayers = players.Where(p => !p.Hand.List().Any()).ToList();
+                    outPlayers.ForEach(p =>
+                    {
+                        Console.WriteLine(p.Name + " is out!!");
+                        players.Remove(p);
+                    });
+                }
+                Thread.Sleep(500);
+                playerTurn++;
+            }
+
+            Console.WriteLine($"winner is {players[0].Name}");
+
+            Console.WriteLine("Pile");
+
+            foreach (var card in discardPile.List())
+            {
                 Console.WriteLine(card);
             }
+
             Console.ReadLine();
         }
     }
 }
-
-//private static readonly Random rnd = new Random();
-
-//var discardPile = new PileOfCards();
-//var players = new List<Player>() {
-//    new Player("Dave"),
-//    new Player("Paul"),
-//    new Player("Fred"),
-//    new Player("Ann") };
-
-//var board = new Board(10, 10);
-//board.Draw();
-
-// Snap
-//var dealTurn = 0;
-//while (pack.CardsRemaining > 0)
-//{
-//    var index = dealTurn % players.Count();
-//    var currentDealPlayer = players[index];
-//    currentDealPlayer.ReceiveCard(pack.Deal());
-//    dealTurn++;
-//}
-
-//var playerTurn = 0;
-
-//// Game Loop
-//while (players.Count > 1)
-//{
-//    var index = playerTurn % players.Count();
-//    var currentPlayer = players[index];
-//    if (!currentPlayer.Hand.List().Any())
-//    {
-//        players.Remove(currentPlayer);
-//        Console.WriteLine($"{currentPlayer.Name} cant play");
-//        continue;
-//    }
-
-//    discardPile.Add(currentPlayer.PlayCard(0));
-
-//    // Both players Check for snap
-//    Console.WriteLine($"{currentPlayer.Name} : {discardPile.TopCard()}");
-
-//    if (discardPile.List().Count() > 1 && discardPile.TopCard().Rank == discardPile.CardAtPosition(1).Rank)
-//    {
-//        Console.WriteLine("------Snap-----");
-//        Console.WriteLine(currentPlayer.Name + " wins Snap");
-//        currentPlayer.CollectCards(discardPile);
-
-//    }
-
-//    playerTurn++;
-//}
-
-//Console.WriteLine($"winner is {players[0].Name}");
-
-//Console.WriteLine("Pile");
-
-//foreach (var card in discardPile.List())
-//{
-//    Console.WriteLine(card);
-//}

@@ -8,7 +8,7 @@ namespace Challenge1
 
         public HandOfCards()
         {
-            cards= new List<Card>();
+            cards = new List<Card>();
         }
 
         public void Add(Card card)
@@ -16,9 +16,9 @@ namespace Challenge1
             cards.Add(card);
         }
 
-        public void AddMany(IEnumerable<Card> card)
+        public void AddMany(IEnumerable<Card> cards)
         {
-            cards.AddRange(card);
+            this.cards.AddRange(cards);
         }
 
         public Card Remove(int index)

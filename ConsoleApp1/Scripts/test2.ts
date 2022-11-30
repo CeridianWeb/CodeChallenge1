@@ -1,4 +1,4 @@
-﻿declare namespace test {
+﻿declare namespace Test {
     /**
      * The declaration of an enum
      */
