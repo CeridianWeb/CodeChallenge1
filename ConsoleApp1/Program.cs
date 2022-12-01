@@ -23,6 +23,7 @@ namespace Challenge1
             Console.BufferWidth = 60;
             Console.BufferHeight = 40;
             Console.Title = "Poker Game";
+            Console.BackgroundColor = ConsoleColor.White;
 
             DealCards dc = new DealCards();
             bool quit = false;

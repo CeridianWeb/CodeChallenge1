@@ -72,14 +72,15 @@ namespace Challenge1
             Console.WriteLine("Player's Hand");
             for (int i = 0; i < 5; i++)
             {
-                DrawCards.DrawCardOutline(x, y);
+                DrawCards.DrawCardOutline(x, 14);
                 DrawCards.DrawCardSuitValue(sortedPlayerHand[i], x, y);
                 x++;
             }
             y = 15; //move the row of computer cards below the player's cards
             x = 0; // reset the x position
-            Console.SetCursorPosition(x, y);
+            Console.SetCursorPosition(x, 12);
             Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Computer's Hand");
             for (int i = 5; i < 10; i++)
             {
                 DrawCards.DrawCardOutline(x, y);
@@ -89,7 +90,7 @@ namespace Challenge1
 
         }
         public void evaluateHands()
-        {
+        {   
 
         }
     }

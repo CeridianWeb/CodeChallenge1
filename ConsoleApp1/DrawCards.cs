@@ -35,7 +35,7 @@ namespace Challenge1
         }
         //Displays suit and value of the card inside its outline
         public static void DrawCardSuitValue(Card card, int xcoor, int ycoor)
-        {
+        { 
             char cardSuit = ' ';
             int x = xcoor * 12;
             int y = ycoor;
