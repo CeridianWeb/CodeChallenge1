@@ -12,10 +12,10 @@ namespace Challenge1
         public string suit;
         public string rank;
 
-        public Card(string suit, string rank)
+        public Card(string suit, string value)
         {
             this.suit = suit;
-            this.rank = rank;
+            this.rank = Enum.TryParse(value, out Ranks rank) ? rank.ToString() : value;
         }
 
         public override string ToString()

@@ -15,10 +15,11 @@ namespace Challenge1
         {
             for(int i =1; i<= sizeof(Suits); i++)
             {
-                for (int j = 1; j <= 13; j++)
+                for (int value = 1; value <= 13; value++)
                 {
-                    Card card = new Card(((Suits) i).ToString(),
-                        Enum.TryParse(j.ToString(), out Ranks rank) ? rank.ToString() : j.ToString());
+                    Card card = new Card(((Suits)i).ToString(),
+                        Enum.TryParse(value.ToString(), out Ranks rank) ? rank.ToString() : value.ToString());
+
                     deck.Add(card);
                 }
             }

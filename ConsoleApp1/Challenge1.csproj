@@ -46,14 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="HandOfCards.cs" />
-    <Compile Include="ICardCollection.cs" />
+    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\ICard.cs" />
+    <Compile Include="Cards\HandOfCards.cs" />
+    <Compile Include="Cards\ICardCollection.cs" />
+    <Compile Include="Game\BlackJackGame.cs" />
+    <Compile Include="Game\IGame.cs" />
     <Compile Include="IPileOfCards.cs" />
-    <Compile Include="EnumOfRanks.cs" />
-    <Compile Include="EnumOfSuits.cs" />
+    <Compile Include="Cards\EnumOfRanks.cs" />
+    <Compile Include="Cards\EnumOfSuits.cs" />
     <Compile Include="PackOfCards.cs" />
     <Compile Include="PileOfCards.cs" />
+    <Compile Include="Players\IPlayer.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,5 +66,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

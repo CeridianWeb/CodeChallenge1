@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Challenge1.Game;
 
 namespace Challenge1
 {
@@ -19,14 +20,18 @@ namespace Challenge1
         static void Main(string[] args)
         {
             // Do not change this, code must run as it is here.
-            var pack = new PackOfCards();
-            pack.Shuffle();
-            Console.WriteLine( "Number of cards = {0}", pack.CardsRemaining);
-            while (pack.CardsRemaining > 0)
-            {
-                Card card = pack.Deal();
-                Console.WriteLine(card);
-            }
+            //var pack = new PackOfCards();
+            //pack.Shuffle();
+            //Console.WriteLine( "Number of cards = {0}", pack.CardsRemaining);
+            //while (pack.CardsRemaining > 0)
+            //{
+            //    Card card = pack.Deal();
+            //    Console.WriteLine(card);
+            //}
+            //Console.ReadLine();
+            BlackJackGame blackJack = new BlackJackGame();
+            blackJack.Start();
+            Console.WriteLine();
             Console.ReadLine();
         }
     }
