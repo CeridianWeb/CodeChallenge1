@@ -20,14 +20,16 @@ namespace Challenge1
         static void Main(string[] args)
         {
             // Do not change this, code must run as it is here.
-            var pack = new PackOfCards();
-            Console.WriteLine("Number of cards = {0}", pack.CardsRemaining);
-            while (pack.CardsRemaining > 0)
-            {
-                ICard card = pack.Deal();
-                Console.WriteLine(card);
-            }
-            Console.ReadLine();
+            //var pack = new PackOfCards();
+            //Console.WriteLine("Number of cards = {0}", pack.CardsRemaining);
+            //while (pack.CardsRemaining > 0)
+            //{
+            //    ICard card = pack.Deal();
+            //    Console.WriteLine(card);
+            //}
+            //Console.ReadLine();
+            var game = new Blackjack();
+            Console.Read();
         }
     }
 }
