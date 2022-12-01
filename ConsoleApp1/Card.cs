@@ -20,7 +20,7 @@ namespace Challenge1
 
         public override string ToString()
         {
-            return suit + rank;
+            return suit[0] + rank;
         }
     }
 }

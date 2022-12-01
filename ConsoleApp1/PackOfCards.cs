@@ -42,5 +42,10 @@ namespace Challenge1
         {
             get => deck.Count;
         }
+
+        public void Shuffle()
+        {
+            deck = deck.OrderBy(card => Guid.NewGuid()).ToList();
+        }
     }
 }

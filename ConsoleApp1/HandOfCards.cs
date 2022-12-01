@@ -5,24 +5,27 @@ namespace Challenge1
 {
     public class HandOfCards : ICardCollection
     {
+        private List<Card> hand = new List<Card>();
         public void Add(Card card)
         {
-            throw new NotImplementedException();
+            hand.Add(card);
         }
 
         public void AddMany(IEnumerable<Card> card)
         {
-            throw new NotImplementedException();
+            hand.AddRange(card);
         }
 
         public IEnumerable<Card> List()
         {
-            throw new NotImplementedException();
+            return hand;
         }
 
         public Card Remove(int index)
         {
-            throw new NotImplementedException();
+            Card card = hand[index];
+            hand.RemoveAt(index);
+            return card;
         }
     }
 }
